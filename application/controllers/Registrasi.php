@@ -55,4 +55,50 @@ class Registrasi extends CI_Controller
 			echo "<script>alert('Registrasi Tidak Berhasil'); window.location.href = 'http://seller.snackpouch.id/'</script>";
 		}
 	}
+
+	public function login()
+	{
+		$email = htmlspecialchars($this->input->post('email'));
+		$password = $this->input->post('password');
+
+		$cek = $this->dbm->get_data_where('users', ['email' => $email])->row_array();
+
+		if ($cek == true) {
+			if ($cek['email'] == $email) {
+				if ($cek['password'] == $password) {
+					if ($cek['role'] == 9) {
+						$data = [
+							'id_user' => $cek['id_user'],
+							'nama' => $cek['nama'],
+							'email' => $cek['email'],
+							'telepon' => $cek['telepon'],
+							'date_created' => $cek['date_created'],
+							'role' => $cek['role'],
+						];
+						echo "<script>alert('Selamat Datang')</script>";
+						$this->session->set_userdata($data);
+						redirect('homepage', $data);
+					} else {
+						$data = [
+							'id_user' => $cek['id_user'],
+							'nama' => $cek['nama'],
+							'email' => $cek['email'],
+							'telepon' => $cek['telepon'],
+							'date_created' => $cek['date_created'],
+							'role' => $cek['role'],
+						];
+						echo "<script>alert('Selamat Datang')</script>";
+						$this->session->set_userdata($data);
+						redirect('homepage', $data);
+					}
+				} else {
+					echo "<script>alert('Password anda salah'): window.location.href = 'http://seller.snackpouch.id/</script>";
+				}
+			} else {
+				echo "<script>alert('Email anda salah'): window.location.href = 'http://seller.snackpouch.id/</script>";
+			}
+		} else {
+			echo "<script>alert('Data anda tidak dapat kami temukan'): window.location.href = 'http://seller.snackpouch.id/</script>";
+		}
+	}
 }

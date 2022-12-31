@@ -7,15 +7,23 @@ class Homepage extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('Database_model', 'dbm');
+    $email = $this->session->userdata('email');
+    if (empty($email)) {
+      redirect('registrasi');
+    }
   }
 
   public function index()
   {
-    $this->load->view('layout/header');
-    $this->load->view('layout/navbar');
-    $this->load->view('layout/sidebar');
-    $this->load->view('homepage');
-    $this->load->view('layout/footer');
+    $data['email'] = $this->session->userdata('email');
+    $data['get_data'] = $this->dbm->get_data('users')->result_array();
+    $data['get_data_where'] = $this->dbm->get_data_where('users')->result_array();
+    $this->load->view('layout/header', $data);
+    $this->load->view('layout/navbar', $data);
+    $this->load->view('layout/sidebar', $data);
+    $this->load->view('homepage', $data);
+    $this->load->view('layout/footer', $data);
   }
 }
 
