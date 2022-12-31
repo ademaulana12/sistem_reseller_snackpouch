@@ -20,12 +20,12 @@ class Database_model extends CI_Model
 {
   public function get_data($table)
   {
-    return $this->db->get($table)->result_array();
+    return $this->db->get($table);
   }
 
   public function get_data_where($table, $where, $in_where)
   {
-    return $this->db->get_where($table, [$where => $in_where])->result_array();
+    return $this->db->get_where($table, [$where => $in_where]);
   }
 
   public function insert_data($table, $data)

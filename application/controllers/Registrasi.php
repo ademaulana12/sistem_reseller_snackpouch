@@ -61,7 +61,7 @@ class Registrasi extends CI_Controller
 		$email = htmlspecialchars($this->input->post('email'));
 		$password = $this->input->post('password');
 
-		$cek = $this->dbm->get_data_where('users', ['email' => $email])->row_array();
+		$cek = $this->dbm->get_data_where('users', 'email', $email)->row_array();
 
 		if ($cek == true) {
 			if ($cek['email'] == $email) {
