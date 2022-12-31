@@ -101,4 +101,16 @@ class Registrasi extends CI_Controller
 			echo "<script>alert('Data anda tidak dapat kami temukan'): window.location.href = 'http://seller.snackpouch.id/</script>";
 		}
 	}
+
+	public function logout()
+	{
+		$data_user = $this->session->all_session();
+		foreach ($data_user as $du) {
+			if ($du !== 'id_user' && $du !== 'email') {
+				$this->session->unset_userdata($data_user);
+			}
+		}
+		$this->session->sess_destroy();
+		redirect('registrasi');
+	}
 }

@@ -13,12 +13,12 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-primary">
+                    <a href="<?= base_url('hompage') ?>" class="nav-link text-primary">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item menu-open">
+                <li class="nav-item">
                     <a href="#" class="nav-link text-primary">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Produk <i class="right fas fa-angle-left"></i></p>
