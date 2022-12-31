@@ -54,9 +54,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 					<h4 class="login-box-msg text-bold">Yuk Registrasi Sekarang</h4>
 
-					<form action="#" method="post">
+					<form action="<?= base_url('registrasi/register') ?>" method="post">
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="Nama Lengkap">
+							<input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" require>
 							<div class="input-group-append">
 								<div class="input-group-text">
 									<span class="fas fa-user"></span>
@@ -64,7 +64,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div>
 						</div>
 						<div class="input-group mb-3">
-							<input type="email" class="form-control" placeholder="Email">
+							<input type="email" name="email" class="form-control" placeholder="Email" require>
 							<div class="input-group-append">
 								<div class="input-group-text">
 									<span class="fas fa-envelope"></span>
@@ -72,7 +72,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div>
 						</div>
 						<div class="input-group mb-3">
-							<input type="email" class="form-control" placeholder="Nomor Telepon">
+							<input type="number" class="form-control" placeholder="Nomor Telepon" require>
 							<div class="input-group-append">
 								<div class="input-group-text">
 									<span class="fas fa-phone"></span>
@@ -80,7 +80,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div>
 						</div>
 						<div class="input-group mb-3">
-							<input type="password" class="form-control" placeholder="Password">
+							<input type="password" name="password" class="form-control" placeholder="Password" require>
 							<div class="input-group-append">
 								<div class="input-group-text">
 									<span class="fas fa-lock"></span>
@@ -88,7 +88,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div>
 						</div>
 						<div class="input-group mb-3">
-							<input type="password" class="form-control" placeholder="Retype password">
+							<input type="password" class="form-control" placeholder="Retype password" require>
 							<div class="input-group-append">
 								<div class="input-group-text">
 									<span class="fas fa-lock"></span>
