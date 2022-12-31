@@ -16,9 +16,10 @@ class Homepage extends CI_Controller
 
   public function index()
   {
+    $email = $this->session->userdata('email');
     $data['email'] = $this->session->userdata('email');
     $data['get_data'] = $this->dbm->get_data('users')->result_array();
-    $data['get_data_where'] = $this->dbm->get_data_where('users')->result_array();
+    $data['get_data_where'] = $this->dbm->get_data_where('users', 'email', $email)->result_array();
     $this->load->view('layout/header', $data);
     $this->load->view('layout/navbar', $data);
     $this->load->view('layout/sidebar', $data);
