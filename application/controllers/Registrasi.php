@@ -43,7 +43,7 @@ class Registrasi extends CI_Controller
 			'email' => $email,
 			'telepon' => $telepon,
 			'password' => $password,
-			'date_created' => date('d-m-Y'),
+			'date_created' => date('Y-m-d'),
 			'role' => 9
 		];
 
