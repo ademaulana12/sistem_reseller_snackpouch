@@ -104,7 +104,7 @@ class Registrasi extends CI_Controller
 
 	public function logout()
 	{
-		$data_user = $this->session->all_session();
+		$data_user = $this->session->all_userdata();
 		foreach ($data_user as $du) {
 			if ($du !== 'id_user' && $du !== 'email') {
 				$this->session->unset_userdata($data_user);
