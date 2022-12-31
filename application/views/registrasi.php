@@ -72,7 +72,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div>
 						</div>
 						<div class="input-group mb-3">
-							<input type="number" class="form-control" placeholder="Nomor Telepon" require>
+							<input type="number" name="telepon" class="form-control" placeholder="Nomor Telepon" require>
 							<div class="input-group-append">
 								<div class="input-group-text">
 									<span class="fas fa-phone"></span>
