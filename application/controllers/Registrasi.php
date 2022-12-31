@@ -47,7 +47,7 @@ class Registrasi extends CI_Controller
 			'role' => 9
 		];
 
-		$insert = $this->dbm->insert_data('user', $data);
+		$insert = $this->dbm->insert_data('users', $data);
 
 		if ($insert) {
 			echo "<script>alert('Registrasi berhasil'); window.location.href = 'http://seller.snackpouch.id/'</script>";
